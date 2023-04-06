@@ -1,0 +1,361 @@
+.navbar {
+    z-index: 100;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    background-color: var(--foreground);
+    color: var(--background);
+    box-shadow: 0px 0px 10px 0px #222222;
+    scroll-behavior: smooth;
+    border-radius: 0px 0px 5px 5px;
+    }
+
+    .colorSelectors {
+      display:none;
+    }
+    
+    .expandColorPicker{
+      width: auto;
+    }
+    .expandColorPicker .colorSelectors{
+      display: inline;
+    }
+    .expandColorPicker .themeSelector{
+      display: none;
+    }
+    
+    .nav-links a {
+    
+    color: var(--background);
+    
+    scroll-behavior: smooth;
+    
+    }
+    
+    /* LOGO */
+    
+    .logo {
+    
+      font-size: 32px;
+      font-family: 'IBM Plex Mono', monospace;
+      color:var(--background);
+      cursor: pointer;
+    
+    }
+    .logo:hover{
+      transform: scale(1.05);
+    }
+    
+    /* NAVBAR MENU */
+    
+    .menu {
+        
+    
+      display: flex;
+      
+      gap: 1em;
+      
+      font-size: 18px;
+
+      transition: all ease 0.2s;
+      scroll-behavior: smooth;
+    
+    }
+    
+    .menu li:hover {
+    
+      background-color: var(--lightGreyHover);
+      
+      border-radius: 5px;
+      
+      transition: 0.3s ease;
+      scroll-behavior: smooth;
+    cursor: pointer;
+    }
+
+    .menu li a:hover {
+        color:var(--foreground);
+    }
+    
+    .menu li {
+    
+     padding: 5px 14px;
+    
+    }
+
+    ul {
+      list-style-type: none;
+      scroll-behavior: smooth;
+    }
+    
+    /* DROPDOWN MENU */
+    
+    .services {
+        text-decoration: underline 1px solid var(--background);
+        position: relative; 
+    }
+    
+    .dropdown {
+        z-index: -1;
+    
+        background-color: var(--foreground);
+        
+        padding: 1em 0;
+        
+        position: absolute; /*WITH RESPECT TO PARENT*/
+        
+
+        
+        border-radius: 8px;
+        
+        top: 30px;
+
+        transform: translate(-50px,-600px);
+        transition: all ease 0.2s;
+    
+    }
+    
+    .dropdown li + li {
+    
+    margin-top: 10px;
+    
+    }
+    
+    .dropdown li {
+    
+    padding: 0.5em 1em;
+    
+    width: 8em;
+    
+    text-align: center;
+    
+    }
+    
+    .dropdown li:hover {
+    
+    background-color: var(--lightGreyHover);
+    
+    }
+    
+.services:hover .dropdown {
+    display: block;
+    transform: translate(-50px,0px);
+    transition: all ease 0.2s;
+}
+
+
+
+    /*RESPONSIVE NAVBAR MENU STARTS*/
+
+/* CHECKBOX HACK */
+
+.navbar input[type=checkbox]{
+
+    display: none;
+    transition: all ease 0.2s;
+
+    
+    } 
+    
+    /*HAMBURGER MENU*/
+    
+    .hamburger {
+    
+        display: none;
+        
+        font-size: 24px;
+        
+        user-select: none;
+
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+    
+    }
+    
+    /* APPLYING MEDIA QUERIES */
+    
+    @media (max-width: 904px) {
+
+      .thead{
+        font-size: large;
+      }
+      .theadMiddle{
+        font-size: large;
+      }
+      .theadRight{
+        font-size: large;
+      }
+
+
+      .colorSwapper{
+        top:100px;
+      }
+    
+        .contentBox{
+            width: 700px;
+        }
+        .proposalItem {
+            width:700px;
+        }
+
+        .ratingSvg {
+          fill: var(--foreground);
+          height: 3rem;
+          width: 3rem;
+      }
+      .radioContainer3{
+        width: 28px;
+        padding: 3px;
+      }
+    
+
+        
+    .menu { 
+      z-index: -10;
+    
+    transform: translate(0px,-300px);
+    
+    
+    position: absolute;
+    
+    background-color:var(--foreground);
+    
+    right: 0;
+    
+    left: 0;
+
+    
+    text-align: center;
+    
+    padding: 16px 0;
+    transition: all ease 0.2s;
+
+    
+    
+    }
+    
+    .menu li:hover {
+    
+    display: inline-block;
+    
+    background-color:var(--lightGreyHover);
+    
+    transition: 0.3s ease;
+
+    
+    }
+
+  
+    
+    .menu li + li {
+    
+    margin-top: 12px;
+    
+    }
+    
+    .navbar input[type=checkbox]:checked ~ .menu{
+    
+    display: block;
+    opacity: 1;
+    transform: translate(0px,0px);
+    transition: all ease 0.2s;
+    height: auto;
+    
+    }
+    
+    .hamburger {
+    
+    display: block;
+    
+    }
+    
+    .dropdown {
+        z-index: 1;
+    
+        left: 50%;
+        
+        top: 30px;
+    
+    
+    }
+    
+    .dropdown li:hover {
+    
+    background-color: var(--lightGreyHover);
+    
+    }
+    .dropdown li:hover a{
+    
+      color: var(--foreground);
+      
+      }
+    
+
+
+
+    /* animate burger to X styling */
+
+    .menu-btn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+      }
+      .menu-btn__burger {
+        width: 50px;
+        height: 4px;
+        background: var(--background);
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255,101,47,.2);
+        transition: all .5s ease-in-out;
+      }
+      .menu-btn__burger::before,
+      .menu-btn__burger::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 4px;
+        background: var(--background);
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255,101,47,.2);
+        transition: all .5s ease-in-out;
+      }
+      .menu-btn__burger::before {
+        transform: translate(-25px,-14px);
+        
+      }
+      .menu-btn__burger::after {
+        transform: translate(-25px, 14px);
+      }
+      /* ANIMATION */
+      .menu-btn.open .menu-btn__burger {
+        transform: translateX(50px);
+        width: 0px;
+        box-shadow: none;
+      }
+      .menu-btn.open .menu-btn__burger::before {
+        transform: rotate(-45deg) translate(-50px, -50px);
+      }
+      .menu-btn.open .menu-btn__burger::after {
+        transform: rotate(45deg) translate(-50px, 50px);
+      }
+
+
+
+  
+    }
+
+
+    
+    
