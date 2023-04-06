@@ -185,3 +185,28 @@ function searchTable() {
    }
    
  }
+
+ //scrolling 
+function scrollToSection(sectionId) {
+    const offset = 135; // set the offset value to 100px less than the target section
+    const section = document.getElementById(sectionId);
+    const top = section.offsetTop - offset;
+    window.scrollTo({top, behavior: 'smooth'});
+  }
+
+
+  /* load in spotlight title typewriter style */
+async function welcomeMessage(){
+    var welcomeMessage = 'Spotlight'
+    var header = document.getElementById('spotlightTitle')
+    header.innerHTML = '';
+  
+    for (var i = 0; i < welcomeMessage.length; i++) {
+      (function(i) {
+        setTimeout(function() {
+          header.innerHTML += welcomeMessage.charAt(i);
+        }, i*70);
+      })(i);
+    }
+  }
+  welcomeMessage()

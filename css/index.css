@@ -14,9 +14,8 @@
 .hidden{
     display: none;
 }
-h1{
+h1, h2{
     text-align: center;
-    margin-bottom: 50px;
 }
 body {
     background-color: var(--background);
@@ -120,6 +119,12 @@ body {
     font-size: larger;
     font-family: 'Source Sans Pro', sans-serif;
     top: 100px;
+  }
+  .titleHeader{
+    top: 100px;
+    color: var(--foreground);
+    position: relative;
+    font-size: 48px;
   }
   .source-sans-pro{
     font-family: 'Source Sans Pro', sans-serif;
