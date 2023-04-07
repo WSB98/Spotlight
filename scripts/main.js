@@ -1,5 +1,5 @@
 /* pagination JS */
-/* pagination for the first table */
+/* pagination for the org table */
 const rowsPerPage = 5; // change this as needed
 const tableRows = document.querySelectorAll('.trow');
 const totalPages = Math.ceil(tableRows.length / rowsPerPage);
@@ -39,9 +39,6 @@ function generatePaginationLinks(currentPage = 1) {
     
 }
 
-
-
-
 document.getElementById('pagination').addEventListener('click', (event) => {
     const clickedElement = event.target;
     if (clickedElement.tagName === 'A') {
@@ -65,8 +62,6 @@ document.getElementById('pagination').addEventListener('click', (event) => {
       }
     }
   });
-  
-  
 
 // onload section
 window.addEventListener('load', () => {
@@ -384,3 +379,33 @@ document.addEventListener('click', async(e) => {
     }
   }
 });
+
+
+/* NAVBAR JS */
+/* checkbox close on clicking outside of it */
+const checkboxToggle = document.getElementById('checkbox_toggle');
+const navbar = document.querySelector('.navbar');
+
+document.addEventListener('click', function(event) {
+  if (!navbar.contains(event.target)) {
+    checkboxToggle.checked = false;
+    menuBtn.classList.remove('open');
+    menuOpen = false;
+  }
+});
+
+const menuBtn = document.querySelector('.menu-btn');
+let menuOpen = false;
+menuBtn.addEventListener('click', () => {
+  if(!menuOpen) {
+    menuBtn.classList.add('open');
+    menuOpen = true;
+  } else {
+    menuBtn.classList.remove('open');
+    menuOpen = false;
+  }
+});
+
+async function gohome(){
+  window.location.replace('index.html')
+};
