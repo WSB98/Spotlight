@@ -18,7 +18,8 @@
         <!-- NAVBAR -->
         <nav class="navbar">
             <!-- LOGO -->
-            <div id="headerLogo" class="logo" onclick="gohome()"><svg xmlns="http://www.w3.org/2000/svg" class="headerLogo"
+            <div id="headerLogo" class="logo" onclick="gohome()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="headerLogo"
                  viewBox="0 0 576 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - 
                     https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                     <path d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 
@@ -64,6 +65,12 @@
 
 <!-- this is where we inject the clicked rows information -->
         <div id="overlay" class="overlay">
+            <svg xmlns="http://www.w3.org/2000/svg" id="closeIcon" class="closeIcon" viewBox="0 0 512 512">
+                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License -
+                 https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 48a208 
+                 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 
+                 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 
+                 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/></svg>
         </div>
 
 
@@ -72,7 +79,7 @@
 
             <div id="orgs" class="fellowsProjectsTable">
                 <h2 class="IBM-monospace">Organizations</h2>
-<input type="text" id="searchInput" class="neumorphicOut searchText" onkeyup="searchTable()" placeholder="Search...">
+                    <input type="text" id="searchInput" class="neumorphicOut searchText" onkeyup="searchTable()" placeholder="Search...">
                     <table id="myTable" class="testingTable1 sortable">
                         <tr id="tableHeadProposals" class="noselect clickable">
                             <th class="thead">Organization</th>
@@ -136,6 +143,72 @@
                 <div id="pagination"></div>
             </div>
             
+
+            <div id="events" class="fellowsProjectsTable">
+                <h2 class="IBM-monospace">Upcoming Events</h2>
+                <input type="text" id="searchInput2" class="neumorphicOut searchText" onkeyup="searchTable()" placeholder="Search...">
+                    <table id="myTable2" class="testingTable1 sortable">
+                        <tr id="tableHeadProposals" class="noselect clickable">
+                            <th class="thead">Event</th>
+                            <th class="theadMiddle">Location</th>
+                            <th class="theadRight">Dates</th>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/standfordBlock.jpg" class="fellowPicture"><br>Stanford Blockchain</td>
+                            <td class="tdata">Stanford, California USA</td>
+                            <td class="tdata">01/01/00</td>
+                            <td class="hidden_column">[Conference, Accelerator, Governance]</td>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/UTpng.jpg" class="fellowPicture"><br>Texas Blockchain</td>
+                            <td class="tdata">Austin, Texas USA</td>
+                            <td class="tdata">01/01/00</td>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/georgiaTech.jpg" class="fellowPicture"><br>Blockchain at GT</td>
+                            <td class="tdata">Atlanta, Geogria USA</td>
+                            <td class="tdata">01/01/00</td>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/MIT.jpg" class="fellowPicture"><br>MIT Bitcoin Club</td>
+                            <td class="tdata">Cambridge, MA USA</td>
+                            <td class="tdata">01/01/00</td>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/berkeley.jpg" class="fellowPicture"><br>Blockchain at Berkeley</td>
+                            <td class="tdata">Berkeley, California USA</td>
+                            <td class="tdata">01/01/00</td>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/USC.jpg" class="fellowPicture"><br>Blockchain at USC</td>
+                            <td class="tdata">Columbia, South Carolina USA</td>
+                            <td class="tdata">01/01/00</td>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/UTpng.jpg" class="fellowPicture"><br>Texas Blockchain</td>
+                            <td class="tdata">Austin, Texas USA</td>
+                            <td class="tdata">01/01/00</td>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/georgiaTech.jpg" class="fellowPicture"><br>Blockchain at GT</td>
+                            <td class="tdata">Atlanta, Geogria USA</td>
+                            <td class="tdata">01/01/00</td>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/MIT.jpg" class="fellowPicture"><br>MIT Bitcoin Club</td>
+                            <td class="tdata">Cambridge, MA USA</td>
+                            <td class="tdata">01/01/00</td>
+                        </tr>
+                        <tr class="trow2">
+                            <td class="tdata"><img alt="fellow profile picture" src="img/berkeley.jpg" class="fellowPicture"><br>Spawn Global</td>
+                            <td class="tdata">Blockchain at Berkeley</td>
+                            <td class="tdata">01/01/00</td>
+                        </tr>
+                        
+                    </table>
+                    
+                <div id="pagination2"></div>
+            </div>
         </div>
         <script type="text/javascript" src="scripts/main.js"></script>
     </body>

@@ -302,7 +302,23 @@ div::-webkit-scrollbar-thumb:hover {
   inset -.15rem -.15rem .3rem rgb(255, 255, 235);
   background-color: rgba(255, 255, 255, .1);
   border-radius: 5px;
-  
+  -webkit-appearance: none;
+}
+.trow2 {
+  border-bottom:var(--foreground) solid 1px;
+  width: 100%;
+  justify-content: center;
+  background-color: none;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+
+.trow2:hover {
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+  -webkit-appearance: none;
 }
 .tdata {
   font-size: medium;
@@ -353,6 +369,7 @@ div::-webkit-scrollbar-thumb:hover {
 #pagination a:active{
   box-shadow: inset .15rem .15rem .3rem grey, 
   inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  -webkit-appearance:none;
 }
 
 #pagination a.active {
@@ -361,7 +378,54 @@ div::-webkit-scrollbar-thumb:hover {
   inset -.15rem -.15rem .3rem rgb(255, 255, 235);
   transition:all ease 0.2s;
 }
+#pagination2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  transition:all ease 0.2s;
+  padding: 5px;
+  border-radius: 10px;
+}
 
+#pagination2 ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#pagination2 li {
+  margin-right: 10px;
+}
+
+#pagination2 a {
+  display: block;
+  padding: 5px 10px;
+  background-color: var(--background);
+  color: var(--foreground);
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: .15rem .15rem .3rem grey, 
+  -.1rem -.1rem .25rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+}
+
+#pagination2 a:hover {
+  background-color: var(--lightGreyHover);
+}
+
+#pagination2 a:active{
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+}
+
+#pagination2 a.active {
+  color: var(--foreground);
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+}
 .colorSelectors {
     display:none;
   }
@@ -607,23 +671,6 @@ div::-webkit-scrollbar-thumb:hover {
     }
   }
 
-  .summiSection {
-    overflow: hidden;
-    background-size:105% 160%;
-    background-image: url('../img/summiDesktopLarger.PNG');
-  }
-  .gsSection {
-    overflow: hidden;
-    background-size: 102.5% 110%;
-    background-image: url('../img/GalacticSaloonDesktop.PNG');
-  }
-  .gvaSection{
-    overflow: hidden;
-    background-size:115% 175%;
-    background-image: url('../img/gvaLogin.PNG');
-    background-position: -100px -125px;
-  }
-
 
   /* overlay slide in for projects */
 .overlay{
@@ -640,6 +687,13 @@ div::-webkit-scrollbar-thumb:hover {
   transition: all ease 0.2s;
   border-radius: 8px;
   overflow-x: hidden;
+}
+.rowItems{
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: 2.5%;
+  height: auto;
 }
 
 .closeIcon{
