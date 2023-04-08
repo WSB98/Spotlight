@@ -12,10 +12,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="scripts/airtable_api.js"></script>
+        <script type="module" src="scripts/airtable_api.js"></script>
         <title>Spotlight</title>
     </head>
     <body>
+
         <!-- NAVBAR -->
         <nav class="navbar">
             <!-- LOGO -->
@@ -146,8 +147,8 @@
             
 
             <div id="events" class="fellowsProjectsTable">
-                <h2 class="IBM-monospace">Upcoming Events</h2>
-                <input type="text" id="searchInput2" class="neumorphicOut searchText" onkeyup="searchTable()" placeholder="Search...">
+                <h2 class="IBM-monospace">Students</h2>
+                <input type="text" id="searchInput2" class="neumorphicOut searchText" onkeyup="searchTable2()" placeholder="Search...">
                     <table id="myTable2" class="testingTable1 sortable">
                         
                         
@@ -157,6 +158,10 @@
             </div>
         </div>
         
+        
+
+        <script type="module" src="scripts/firebase.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
         <script type="text/javascript" src="scripts/main.js"></script>
         
     </body>

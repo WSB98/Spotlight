@@ -196,113 +196,10 @@ async function welcomeMessage(){
 
 
 
-  /* events table */
-     // search events
-function searchTable2() {
-  // Declare variables for accessing the input field and table
- var input, filter, table, tr, td, i, txtValue;
- input = document.getElementById("searchInput2");
- filter = input.value.toUpperCase();
- table = document.getElementById("myTable2");
- tr = table.getElementsByTagName("tr");
-
- // Loop through all table rows and hide those that don't match the search query
- for (i = 0; i < tr.length; i++) {
-   td = tr[i].getElementsByTagName("td"); // Get the first td element in the current row
-   for (j = 0; j < td.length; j++) { // Make sure the td element exists (i.e., the row isn't a table header)
-     txtValue = td[j].textContent || td[j].innerText; // Get the text content of the td element
-     if (txtValue.toUpperCase().indexOf(filter) > -1) {  // Check if the text content contains the search query
-       tr[i].style.display = ""; // Show the row if it matches the search query
-       break;
-     } else {
-       tr[i].style.display = "none"; // Hide the row if it doesn't match the search query
-     }
-   }
- }
-
- if(filter == "" || filter == " "){
-     document.querySelector('#pagination2 a[data-page2="1"]').click();
- }
- 
-}
-
-
-/* pagination for passed proposal table */
-//pagination for the second table OR glassTable1
-const rowsPerPage2 = 5; // change this as needed
-const tableRows2 = document.querySelectorAll('.trow2');
-const totalPages2 = Math.ceil(tableRows2.length / rowsPerPage2);
-
-function generatePaginationLinks2(currentPage2 = 1) {
-    if (currentPage2 === undefined) {
-        currentPage2 = 1;
-        }
-    let linksHtml2 = '';
-    const startPage2 = Math.max(currentPage2 - 1, 1);
-    const endPage2 = Math.min(startPage2 + 2, totalPages2);
-
-    if (startPage2 > 1) {
-        linksHtml2 += '<li><a href="#" data-page2="1">1</a></li>';
-        if (startPage2 > 2) {
-        linksHtml2 += '<li><span class="IBM-monospace">...</span></li>';
-        }
-    }
-
-    for (let i = startPage2; i <= endPage2; i++) {
-        linksHtml2 += `<li><a href="#" data-page2="${i}"${i === currentPage2 ? ' class="active"' : ''}>${i}</a></li>`;
-    }
-
-    if (endPage2 < totalPages2) {
-        if (endPage2 < totalPages2 - 1) {
-        linksHtml2 += '<li><span class="IBM-monospace">...</span></li>';
-        }
-        linksHtml2 += `<li><a href="#" data-page2="${totalPages2}">${totalPages2}</a></li>`;
-    }
-
-    document.querySelector('#pagination2').innerHTML = `<ul>${linksHtml2}</ul>`;
-    const activeLink2 = document.querySelector(`#pagination2 a[data-page2="${currentPage2}"]`);
-    if (activeLink2) {
-        activeLink2.classList.add('active');
-    }
-
-    
-}
-
-
-
-
-document.getElementById('pagination2').addEventListener('click', (event2) => {
-    const clickedElement2 = event2.target;
-    if (clickedElement2.tagName === 'A') {
-      event2.preventDefault();
-      if (clickedElement2.hasAttribute('data-page2')) {
-        const selectedPage2 = clickedElement2.getAttribute('data-page2');
-        const tableRows2 = document.querySelectorAll('.trow2');
-        const startIndex2 = (selectedPage2 - 1) * rowsPerPage2;
-        const endIndex2 = startIndex2 + rowsPerPage2;
-        tableRows2.forEach((row2, index2) => {
-          if (index2 >= startIndex2 && index2 < endIndex2) {
-            row2.style.display = '';
-          } else {
-            row2.style.display = 'none';
-          }
-        });
-        generatePaginationLinks2(selectedPage2);
-      } else if (clickedElement2.textContent === '...') {
-        const currentPage2 = parseInt(document.querySelector('#pagination2 a.active').getAttribute('data-page2'));
-        generatePaginationLinks2(currentPage2);
-      }
-    }
-  });
-  
   
 
-// onload section
-window.addEventListener('load', () => {
-    generatePaginationLinks2(1);
-     // Add this line to display the first page on load
-    document.querySelector('#pagination2 a[data-page2="1"]').click();
-});
+
+
 
 
 
@@ -314,12 +211,10 @@ var eventTable = document.getElementById('myTable2');
 
 orgTable.addEventListener('click', async(e) => {
   var whereClicked = e.target.tagName;
-  console.log(whereClicked)
   if(whereClicked == "TD" || whereClicked == "IMG"){
      /* INJECT INFO */
      var row = e.target.closest('tr');
      var cells = row.querySelectorAll('td');
-     console.log(cells)
      var injection = ``
      
      for(i=0;i < cells.length; i++){
@@ -361,7 +256,67 @@ orgTable.addEventListener('click', async(e) => {
       </div>
       `
 
-      console.log(injection)
+
+     /* VISIBLE */
+    overlay.style.transform = 'translate(0px,40px)'
+    overlay.style.opacity = "1"
+
+
+   
+  }
+});
+
+eventTable.addEventListener('click', async(e) => {
+  var whereClicked = e.target.tagName;
+  if(whereClicked == "TD" || whereClicked == "IMG"){
+     /* INJECT INFO */
+     var row = e.target.closest('tr');
+     var cells = row.querySelectorAll('td');
+     var injection = ``
+     
+     for(i=0;i < cells.length; i++){
+      
+
+      // INITAITIVES ALWAYS IN INDEX 3
+      if(i === 3){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Affiliated School</h6>${cells[i].innerHTML}</div>`
+      }
+      else if(i === 0){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Name</h6>${cells[i].innerHTML}</div>`
+      }
+      else if(i === 1){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">LinkedIn</h6>${cells[i].innerHTML}</div>`
+      }
+      else if(i === 2){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Date Joined</h6>${cells[i].innerHTML}</div>`
+      }
+      else if(i === 4){
+        //CHECK IF EMPTY BEFORE GIVIING A LINK
+        if(cells[i].innerHTML === "No Email Provided"){
+          injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Email</h6>${cells[i].innerHTML}</div>`
+        }
+        else {
+          injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Email</h6><a href="mailto:${cells[i].innerHTML}">Click To Email!</a></div>`
+        }
+      }
+      else if(i === 5){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Interests</h6>${cells[i].innerHTML}</div>`
+      }
+      
+     }
+
+    overlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" id="closeIcon" class="closeIcon" viewBox="0 0 512 512">
+     <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License -
+      https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 48a208 
+      208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 
+      0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 
+      47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/></svg>
+      
+      <div class="rowItems">
+      ${injection}
+      </div>
+      `
+
 
      /* VISIBLE */
     overlay.style.transform = 'translate(0px,40px)'
@@ -380,8 +335,8 @@ document.addEventListener('click', async(e) => {
   var whereClicked = e.target.tagName;
   
   var closeIcon = document.getElementById('closeIcon')
-
-  if(whereClicked !== "TD" && whereClicked !== 'IMG' && !overlay.contains(e.target)){
+  try {
+    if(whereClicked !== "TD" && whereClicked !== 'IMG' && !overlay.contains(e.target)){
     var ID = e.target.closest('div');
     if(ID.id !== "overlay"){
       overlay.style.transform = 'translate(0px,-1000px)'
@@ -390,10 +345,14 @@ document.addEventListener('click', async(e) => {
     
   }
   else if(e.target.id === closeIcon.id){
-      console.log('closed')
       overlay.style.transform = 'translate(0px,-1000px)'
       overlay.style.opacity = "0"
     }
+  }
+  catch(e){
+    console.log(e)
+  }
+  
 });
 
 
@@ -436,4 +395,37 @@ window.addEventListener('load', () => {
    // Add this line to display the first page on load
   document.querySelector('#pagination a[data-page="1"]').click();
 });
+
+
+// search events
+function searchTable2() {
+  // Declare variables for accessing the input field and table
+ var input, filter, table, tr, td, i, txtValue;
+ input = document.getElementById("searchInput2");
+ filter = input.value.toUpperCase();
+ table = document.getElementById("myTable2");
+ tr = table.getElementsByTagName("tr");
+
+ // Loop through all table rows and hide those that don't match the search query
+ for (i = 0; i < tr.length; i++) {
+   td = tr[i].getElementsByTagName("td"); // Get the first td element in the current row
+   for (j = 0; j < td.length; j++) { // Make sure the td element exists (i.e., the row isn't a table header)
+     txtValue = td[j].textContent || td[j].innerText; // Get the text content of the td element
+     if (txtValue.toUpperCase().indexOf(filter) > -1) {  // Check if the text content contains the search query
+       tr[i].style.display = ""; // Show the row if it matches the search query
+       break;
+     } else {
+       tr[i].style.display = "none"; // Hide the row if it doesn't match the search query
+     }
+   }
+ }
+
+ if(filter == "" || filter == " "){
+     document.querySelector('#pagination2 a[data-page2="1"]').click();
+ }
+ 
+}
+
+
+
 

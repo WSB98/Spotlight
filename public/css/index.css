@@ -60,6 +60,7 @@ body {
   box-shadow: inset .15rem .15rem .3rem grey, 
   inset -.15rem -.15rem .3rem rgb(255, 255, 235);
   transition:all ease 0.2s;
+  -webkit-appearance: none;
 }
 .redbubbleContainer{
   display: flex;
