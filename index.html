@@ -12,6 +12,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="scripts/airtable_api.js"></script>
         <title>Spotlight</title>
     </head>
     <body>
@@ -36,14 +37,14 @@
                 <label for="checkbox_toggle" id="hamburger" class="hamburger"><div class="menu-btn"><div class="menu-btn__burger"></div></div></label>
                 <!-- NAVIGATION MENUS -->
                     <div class="menu">
-                    <li><a href="index.html">Home</a></li>
+                    <a href="index.html"><li>Home</li></a>
                    
                     <li id="servicesLink" class="services">
                     <a>Resources</a>
                     <!-- DROPDOWN MENU -->
                     <ul id="servicesDropdown" class="dropdown">
-                        <li><a onclick="scrollToSection('orgs')">Organizations</a></li>
-                        <li><a onclick="scrollToSection('events')">Events</a></li>
+                        <a onclick="scrollToSection('orgs')"><li>Organizations</li></a>
+                        <a onclick="scrollToSection('events')"><li>Events</li></a>
                     </ul>
                     </li>
                     </div>
@@ -90,7 +91,7 @@
                             <td class="tdata"><img alt="fellow profile picture" src="img/standfordBlock.jpg" class="fellowPicture"><br>Stanford Blockchain</td>
                             <td class="tdata">Stanford, California USA</td>
                             <td class="tdata">01/01/00</td>
-                            <td class="hidden_column">[Conference, Accelerator, Governance]</td>
+                            <td class="hidden_column">Conference,Accelerator,Governance</td>
                         </tr>
                         <tr class="trow">
                             <td class="tdata"><img alt="fellow profile picture" src="img/UTpng.jpg" class="fellowPicture"><br>Texas Blockchain</td>
@@ -148,69 +149,15 @@
                 <h2 class="IBM-monospace">Upcoming Events</h2>
                 <input type="text" id="searchInput2" class="neumorphicOut searchText" onkeyup="searchTable()" placeholder="Search...">
                     <table id="myTable2" class="testingTable1 sortable">
-                        <tr id="tableHeadProposals" class="noselect clickable">
-                            <th class="thead">Event</th>
-                            <th class="theadMiddle">Location</th>
-                            <th class="theadRight">Dates</th>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/standfordBlock.jpg" class="fellowPicture"><br>Stanford Blockchain</td>
-                            <td class="tdata">Stanford, California USA</td>
-                            <td class="tdata">01/01/00</td>
-                            <td class="hidden_column">[Conference, Accelerator, Governance]</td>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/UTpng.jpg" class="fellowPicture"><br>Texas Blockchain</td>
-                            <td class="tdata">Austin, Texas USA</td>
-                            <td class="tdata">01/01/00</td>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/georgiaTech.jpg" class="fellowPicture"><br>Blockchain at GT</td>
-                            <td class="tdata">Atlanta, Geogria USA</td>
-                            <td class="tdata">01/01/00</td>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/MIT.jpg" class="fellowPicture"><br>MIT Bitcoin Club</td>
-                            <td class="tdata">Cambridge, MA USA</td>
-                            <td class="tdata">01/01/00</td>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/berkeley.jpg" class="fellowPicture"><br>Blockchain at Berkeley</td>
-                            <td class="tdata">Berkeley, California USA</td>
-                            <td class="tdata">01/01/00</td>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/USC.jpg" class="fellowPicture"><br>Blockchain at USC</td>
-                            <td class="tdata">Columbia, South Carolina USA</td>
-                            <td class="tdata">01/01/00</td>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/UTpng.jpg" class="fellowPicture"><br>Texas Blockchain</td>
-                            <td class="tdata">Austin, Texas USA</td>
-                            <td class="tdata">01/01/00</td>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/georgiaTech.jpg" class="fellowPicture"><br>Blockchain at GT</td>
-                            <td class="tdata">Atlanta, Geogria USA</td>
-                            <td class="tdata">01/01/00</td>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/MIT.jpg" class="fellowPicture"><br>MIT Bitcoin Club</td>
-                            <td class="tdata">Cambridge, MA USA</td>
-                            <td class="tdata">01/01/00</td>
-                        </tr>
-                        <tr class="trow2">
-                            <td class="tdata"><img alt="fellow profile picture" src="img/berkeley.jpg" class="fellowPicture"><br>Spawn Global</td>
-                            <td class="tdata">Blockchain at Berkeley</td>
-                            <td class="tdata">01/01/00</td>
-                        </tr>
+                        
                         
                     </table>
                     
                 <div id="pagination2"></div>
             </div>
         </div>
+        
         <script type="text/javascript" src="scripts/main.js"></script>
-        <script type="text/javascript" src="scripts/airtable_api.js"></script>
+        
     </body>
 </html>

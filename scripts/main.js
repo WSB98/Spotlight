@@ -63,20 +63,7 @@ document.getElementById('pagination').addEventListener('click', (event) => {
     }
   });
 
-// onload section
-window.addEventListener('load', () => {
-    generatePaginationLinks(1);
-     // Add this line to display the first page on load
-    document.querySelector('#pagination a[data-page="1"]').click();
-  });
 
-window.addEventListener('load', async () => {
-    //add sortable script after adding the data (doesnt work if loaded before data)
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "https://www.kryogenix.org/code/browser/sorttable/sorttable.js";
-    document.head.appendChild(script)
-});
 
 
 /* theme selection */
@@ -327,16 +314,42 @@ var eventTable = document.getElementById('myTable2');
 
 orgTable.addEventListener('click', async(e) => {
   var whereClicked = e.target.tagName;
-  if(whereClicked == "TD" || whereClicked == "img"){
+  console.log(whereClicked)
+  if(whereClicked == "TD" || whereClicked == "IMG"){
      /* INJECT INFO */
      var row = e.target.closest('tr');
-     var cells = row.querySelector('td');
+     var cells = row.querySelectorAll('td');
+     console.log(cells)
      var injection = ``
+     
      for(i=0;i < cells.length; i++){
-      injection += `<div class='contentBox'>${cells[i]}</div>`
+      
+
+      // INITAITIVES ALWAYS IN INDEX 3
+      if(i === 3){
+        var array = cells[i].innerHTML.split(',');
+        var tempInject = ``
+        for(j = 0; j < array.length; j++){
+          tempInject += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Initiative</h6>${array[j]}</div>`
+        }
+        injection += tempInject
+      }
+      else if(i === 0){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Organization</h6>${cells[i].innerHTML}</div>`
+      }
+      else if(i === 1){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Location</h6>${cells[i].innerHTML}</div>`
+      }
+      else if(i === 2){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Date Joined</h6>${cells[i].innerHTML}</div>`
+      }
+      else{
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'>${cells[i].innerHTML}</div>`
+      }
+      
      }
 
-     overlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" id="closeIcon" class="closeIcon" viewBox="0 0 512 512">
+    overlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" id="closeIcon" class="closeIcon" viewBox="0 0 512 512">
      <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License -
       https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 48a208 
       208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 
@@ -347,6 +360,8 @@ orgTable.addEventListener('click', async(e) => {
       ${injection}
       </div>
       `
+
+      console.log(injection)
 
      /* VISIBLE */
     overlay.style.transform = 'translate(0px,40px)'
@@ -366,18 +381,19 @@ document.addEventListener('click', async(e) => {
   
   var closeIcon = document.getElementById('closeIcon')
 
-  if(whereClicked !== "TD"){
+  if(whereClicked !== "TD" && whereClicked !== 'IMG' && !overlay.contains(e.target)){
     var ID = e.target.closest('div');
     if(ID.id !== "overlay"){
       overlay.style.transform = 'translate(0px,-1000px)'
       overlay.style.opacity = "0"
     }
-    else if(e.target.id === closeIcon.id){
+    
+  }
+  else if(e.target.id === closeIcon.id){
       console.log('closed')
       overlay.style.transform = 'translate(0px,-1000px)'
       overlay.style.opacity = "0"
     }
-  }
 });
 
 
@@ -409,3 +425,15 @@ menuBtn.addEventListener('click', () => {
 async function gohome(){
   window.location.replace('index.html')
 };
+
+
+
+
+
+// onload section
+window.addEventListener('load', () => {
+  generatePaginationLinks(1);
+   // Add this line to display the first page on load
+  document.querySelector('#pagination a[data-page="1"]').click();
+});
+

@@ -192,14 +192,17 @@
         font-size: large;
       }
 
+      .rowItems{
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
 
       .colorSwapper{
         top:100px;
       }
     
-        .contentBox{
-            width: 700px;
-        }
+      
         .proposalItem {
             width:700px;
         }
