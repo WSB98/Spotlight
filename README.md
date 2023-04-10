@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="img/spotlightTitle.PNG">
-  <source media="(prefers-color-scheme: light)" srcset="img/spotlightTitle.PNG">
-  <img style="height:256px;width:256px;" alt="spotlight Title" src="img/spotlightTitle.PNG">
+  <source media="(prefers-color-scheme: dark)" srcset="public/img/spotlightTitle.PNG">
+  <source media="(prefers-color-scheme: light)" srcset="public/img/spotlightTitle.PNG">
+  <img style="height:256px;width:256px;" alt="spotlight Title" src="public/img/spotlightTitle.PNG">
 </picture>
 
 # For QA Testing
