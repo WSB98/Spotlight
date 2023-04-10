@@ -77,7 +77,7 @@ var records = [];
     records = offsetData
     
     var injection = `    
-        <tr id="tableHeadProposals" class="noselect clickable">
+        <tr id="tableHead_students" class="noselect clickable">
         <th class="thead">Name</th>
         <th class="theadMiddle">Linkedin</th>
         <th class="theadRight">School</th>
@@ -273,3 +273,20 @@ async function genLinks2() {
 
     
   };
+
+
+  /* get the header of proposal table and go to the first page on click. need to do this because the sortable script 
+is sorting the data and causing the page numbers to get out of order without being shown on the UI.
+this basically realigns the order after the sorting is done */
+document.getElementById('tableHead_orgs').addEventListener('click', async () => {
+    generatePaginationLinks(1);
+     // Add this line to display the first page on load
+    document.querySelector('#pagination a[data-page="1"]').click();
+});
+
+//same as above but for the passed proposals. 
+document.getElementById('tableHead_students').addEventListener('click', async () => {
+    generatePaginationLinks2(1);
+     // Add this line to display the first page on load
+    document.querySelector('#pagination2 a[data-page2="1"]').click();
+});
