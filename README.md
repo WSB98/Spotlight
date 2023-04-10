@@ -6,10 +6,20 @@
 
 # For QA Testing
 Assuming you arrived at this repo to test out Spotlight or do some QA testing, the steps below are for you if you haven't downloaded files from GutHub before.
+
+### Option 1 (Run Locally)
 - Click on the green **Code** button, and press ```download ZIP```
 - Open the ZIP folder, and **Extract all**
 - Go to the unzipped folder and open it
 - Double click the ```index.html``` file and open it with your browser
+
+### Option 2 (Local Server [recommended])
+- Downlaod [VS Code](https://code.visualstudio.com/)
+- Download the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension
+- Clone the repo, or download the files as detailed above
+- Open the cloned repo in VS Code
+- ```CMD+SHIFT+P``` // ```CTRL+SHIFT+P``` to open commands, then click **Start Live Server**
+- If you open to a file tree, navigate to ```public```
 
 # Reporting Issues
 Please let me know if any major bugs or issues arise by contacting me personally or opening a new Issue in the Issues tab.
