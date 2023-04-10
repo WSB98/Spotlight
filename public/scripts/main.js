@@ -279,7 +279,7 @@ eventTable.addEventListener('click', async(e) => {
 
       // INITAITIVES ALWAYS IN INDEX 3
       if(i === 3){
-        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Affiliated School</h6>${cells[i].innerHTML}</div>`
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Date Joined</h6>${cells[i].innerHTML}</div>`
       }
       else if(i === 0){
         injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Name</h6>${cells[i].innerHTML}</div>`
@@ -288,7 +288,7 @@ eventTable.addEventListener('click', async(e) => {
         injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">LinkedIn</h6>${cells[i].innerHTML}</div>`
       }
       else if(i === 2){
-        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Date Joined</h6>${cells[i].innerHTML}</div>`
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Affiliated School</h6>${cells[i].innerHTML}</div>`
       }
       else if(i === 4){
         //CHECK IF EMPTY BEFORE GIVIING A LINK

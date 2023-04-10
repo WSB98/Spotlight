@@ -18,7 +18,7 @@ async function getKeys(){
 }
 
 //pagination for the second table OR glassTable1
-const rowsPerPage2 = 5; // change this as needed
+const rowsPerPage2 = 10; // change this as needed
 var tableRows2 = []
 var totalPages2 = 0
 
@@ -80,7 +80,7 @@ var records = [];
         <tr id="tableHeadProposals" class="noselect clickable">
         <th class="thead">Name</th>
         <th class="theadMiddle">Linkedin</th>
-        <th class="theadRight">Joined</th>
+        <th class="theadRight">School</th>
         </tr>`
 
     records.forEach(async o => {
@@ -163,8 +163,8 @@ var records = [];
     <tr id='${id}' class="trow2">
         <td class="tdata">${fullName}</td>
         <td class="tdata"><a target="_blank" href="https://linkedin.${linkedin}">LinkedIn</a></td>
-        <td class="tdata">${formattedDate}</td>
-        <td class="hidden_column">${school}</td>
+        <td class="tdata">${school}</td>
+        <td class="hidden_column">${formattedDate}</td>
         <td class="hidden_column">${email}</td>
         <td class="hidden_column">${interests}</td>
     </tr>`
