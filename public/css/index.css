@@ -840,10 +840,100 @@ div::-webkit-scrollbar-thumb:hover {
 .textarea {
   height: 10rem;
 }
+.progressBar{
+  width: 50%;
+  border: 1px solid var(--foreground);
+  top: 10%;
+  position: relative;
+  height: 32px;
+  border-radius: 5px;
+  display: flex;
+  left: calc(50% - 25%);
+  transition: all ease-in-out 0.3s;
+}
+.progressScroll{
+  display: flex;
+  margin: 0px;
+  border-radius: 2px;
+  height: 100%;
+  background-color: var(--foreground);
+  transition: all ease-in-out 0.3s;
+}
 
 
 
-
+.loginForm{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  top: 20%;
+  width: 50%;
+  padding: 25px;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+.loginForm label{
+  font-size: x-large;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 5px;
+}
+.loginForm input{
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #00000000;
+  background-color: #00000000;
+}
+.loginButton{
+  border: 1px solid #00000000;
+  outline: none;
+  background-color: var(--background);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: x-large;
+  margin: 10px;
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
+}
+.forgotPassword{
+  border: 1px solid #00000000;
+  outline: none;
+  background-color: var(--background);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: medium;
+  margin: 10px;
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
+}
+.buttonContainer{
+  justify-content: space-around;
+  display: flex;
+}
+.pseudoBody_login{
+  justify-content: space-around;
+  display: flex;
+  position: relative;
+  top: 150px;
+}
+.loginForm button:hover{
+  box-shadow:  .15rem .15rem .3rem grey, 
+   -.15rem -.15rem .3rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+  border: 1px solid #00000000;
+}
+.loginForm button:active{
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+  border: 1px solid #00000000;
+}
 
 
   /* header sizing for carousel */

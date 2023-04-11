@@ -1,142 +1,3 @@
-/* pagination JS */
-/* pagination for the org table */
-const rowsPerPage = 5; // change this as needed
-const tableRows = document.querySelectorAll('.trow');
-const totalPages = Math.ceil(tableRows.length / rowsPerPage);
-
-function generatePaginationLinks(currentPage = 1) {
-    if (currentPage === undefined) {
-        currentPage = 1;
-        }
-    let linksHtml = '';
-    const startPage = Math.max(currentPage - 1, 1);
-    const endPage = Math.min(startPage + 2, totalPages);
-
-    if (startPage > 1) {
-        linksHtml += '<li><a href="#" data-page="1">1</a></li>';
-        if (startPage > 2) {
-        linksHtml += '<li ><span class="IBM-monospace">...</span></li>';
-        }
-    }
-
-    for (let i = startPage; i <= endPage; i++) {
-        linksHtml += `<li><a href="#" data-page="${i}"${i === currentPage ? ' class="active"' : ''}>${i}</a></li>`;
-    }
-
-    if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-        linksHtml += '<li><span class="IBM-monospace">...</span></li>';
-        }
-        linksHtml += `<li><a href="#" data-page="${totalPages}">${totalPages}</a></li>`;
-    }
-
-    document.querySelector('#pagination').innerHTML = `<ul>${linksHtml}</ul>`;
-    const activeLink = document.querySelector(`#pagination a[data-page="${currentPage}"]`);
-    if (activeLink) {
-        activeLink.classList.add('active');
-    }
-
-    
-}
-
-document.getElementById('pagination').addEventListener('click', (event) => {
-    const clickedElement = event.target;
-    if (clickedElement.tagName === 'A') {
-      event.preventDefault();
-      if (clickedElement.hasAttribute('data-page')) {
-        const selectedPage = clickedElement.getAttribute('data-page');
-        const tableRows = document.querySelectorAll('.trow');
-        const startIndex = (selectedPage - 1) * rowsPerPage;
-        const endIndex = startIndex + rowsPerPage;
-        tableRows.forEach((row, index) => {
-          if (index >= startIndex && index < endIndex) {
-            row.style.display = '';
-          } else {
-            row.style.display = 'none';
-          }
-        });
-        generatePaginationLinks(selectedPage);
-      } else if (clickedElement.textContent === '...') {
-        const currentPage = parseInt(document.querySelector('#pagination a.active').getAttribute('data-page'));
-        generatePaginationLinks(currentPage);
-      }
-    }
-  });
-
-
-
-
-/* theme selection */
-window.addEventListener('load', async (e) => {
-    var body = document.body;
-    var colorSelectors = document.getElementById('colorSelectors');
-    var flipper = document.getElementById('swapIcon');
-    var swapper = document.getElementById('colorSwapper');
-    var palette = document.getElementById('paintIcon');
-    var color1 = document.getElementById('color1');
-    var color2 = document.getElementById('color2');
-    var styles = getComputedStyle(document.body);
-    var currFG = styles.getPropertyValue('--background').trim();
-    var currBG = styles.getPropertyValue('--foreground').trim();
-    
-    colorSelectors.style.display = 'none'
-  
-    
-    
-  
-    if(localStorage.getItem('color1') !== null){
-        color1.value = localStorage.getItem('color1')
-        document.documentElement.style.setProperty("--background", localStorage.getItem('color1'));
-    }
-    else{
-      color1.value = currFG
-    }
-    if(localStorage.getItem('color2') !== null){
-        color2.value = localStorage.getItem('color2')
-        document.documentElement.style.setProperty("--foreground", localStorage.getItem('color2'));
-        
-    } else{
-      color2.value = currBG
-    }
-    
-  
-    swapper.addEventListener('click' , async (e) => {
-        
-        swapper.style.width = '150px';
-        palette.style.display = 'none';
-        colorSelectors.style.display = 'inline-flex'
-        
-    });
-  
-    document.addEventListener('click', async(e) => {
-        if(!swapper.contains(e.target)){
-          
-            colorSelectors.style.display = 'none'
-            swapper.style.width = '48px';
-            palette.style.display = 'flex';
-            
-        }
-    });
-  
-    color1.addEventListener('change', async (e) => {
-        await localStorage.setItem('color1',color1.value)
-        await document.documentElement.style.setProperty("--background", localStorage.getItem('color1'));
-        
-    });
-    color2.addEventListener('change', async (e) => {
-        await localStorage.setItem('color2',color2.value)
-        await document.documentElement.style.setProperty("--foreground", localStorage.getItem('color2'));
-        
-    });
-    flipper.addEventListener('click', async(e) => {
-      await localStorage.setItem('color1',color2.value)
-      await localStorage.setItem('color2',color1.value)
-      await document.documentElement.style.setProperty("--foreground", localStorage.getItem('color2'));
-      await document.documentElement.style.setProperty("--background", localStorage.getItem('color1'));
-      window.location.reload()
-    });
-  })
-
 
   /* search fellows projects table */
   // search orgs
@@ -217,30 +78,33 @@ orgTable.addEventListener('click', async(e) => {
      var cells = row.querySelectorAll('td');
      var injection = ``
      
-     for(i=0;i < cells.length; i++){
+     for(i=0;i < 3; i++){
       
 
       // INITAITIVES ALWAYS IN INDEX 3
-      if(i === 3){
-        var array = cells[i].innerHTML.split(',');
-        var tempInject = ``
-        for(j = 0; j < array.length; j++){
-          tempInject += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Initiative</h6>${array[j]}</div>`
-        }
-        injection += tempInject
-      }
-      else if(i === 0){
+      
+      if (i === 0){
         injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Organization</h6>${cells[i].innerHTML}</div>`
       }
       else if(i === 1){
-        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Location</h6>${cells[i].innerHTML}</div>`
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Members</h6>${cells[i].innerHTML}</div>`
       }
-      else if(i === 2){
-        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Date Joined</h6>${cells[i].innerHTML}</div>`
-      }
-      else{
-        injection += `<div class='contentBox source-sans-pro neumorphicOut'>${cells[i].innerHTML}</div>`
-      }
+     
+      
+     }
+     for(i=2;i < cells.length - 2; i+=3){
+
+      var name = cells[i].innerHTML;
+      var year = cells[i+1].innerHTML;
+      var resume = cells[i+2].innerHTML;
+      
+      
+
+      // INITAITIVES ALWAYS IN INDEX 3
+      injection += `<div class='contentBox source-sans-pro neumorphicOut'>
+      <h6 class="IBM-monospace">${name}</h6>Grad Year: ${year} <br>Resume: ${resume}</div>`
+      
+      
       
      }
 
@@ -277,20 +141,20 @@ eventTable.addEventListener('click', async(e) => {
      for(i=0;i < cells.length; i++){
       
 
-      // INITAITIVES ALWAYS IN INDEX 3
-      if(i === 3){
-        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Date Joined</h6>${cells[i].innerHTML}</div>`
-      }
-      else if(i === 0){
+      
+      if(i === 0){
         injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Name</h6>${cells[i].innerHTML}</div>`
       }
       else if(i === 1){
-        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">LinkedIn</h6>${cells[i].innerHTML}</div>`
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Graduation Year</h6>${cells[i].innerHTML}</div>`
       }
       else if(i === 2){
         injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Affiliated School</h6>${cells[i].innerHTML}</div>`
       }
-      else if(i === 4){
+      else if(i === 3){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">LinkedIn</h6>${cells[i].innerHTML}</div>`
+      }
+      else if(i === 5){
         //CHECK IF EMPTY BEFORE GIVIING A LINK
         if(cells[i].innerHTML === "No Email Provided"){
           injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Email</h6>${cells[i].innerHTML}</div>`
@@ -299,10 +163,12 @@ eventTable.addEventListener('click', async(e) => {
           injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Email</h6><a href="mailto:${cells[i].innerHTML}">Click To Email!</a></div>`
         }
       }
-      else if(i === 5){
+      else if(i === 4){
+        injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Date Joined</h6>${cells[i].innerHTML}</div>`
+      }
+      else if(i === 6){
         injection += `<div class='contentBox source-sans-pro neumorphicOut'><h6 class="IBM-monospace">Interests</h6>${cells[i].innerHTML}</div>`
       }
-      
      }
 
     overlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" id="closeIcon" class="closeIcon" viewBox="0 0 512 512">
@@ -356,45 +222,10 @@ document.addEventListener('click', async(e) => {
 });
 
 
-/* NAVBAR JS */
-/* checkbox close on clicking outside of it */
-const checkboxToggle = document.getElementById('checkbox_toggle');
-const navbar = document.querySelector('.navbar');
-
-document.addEventListener('click', function(event) {
-  if (!navbar.contains(event.target)) {
-    checkboxToggle.checked = false;
-    menuBtn.classList.remove('open');
-    menuOpen = false;
-  }
-});
-
-const menuBtn = document.querySelector('.menu-btn');
-let menuOpen = false;
-menuBtn.addEventListener('click', () => {
-  if(!menuOpen) {
-    menuBtn.classList.add('open');
-    menuOpen = true;
-  } else {
-    menuBtn.classList.remove('open');
-    menuOpen = false;
-  }
-});
-
-async function gohome(){
-  window.location.replace('index.html')
-};
 
 
 
 
-
-// onload section
-window.addEventListener('load', () => {
-  generatePaginationLinks(1);
-   // Add this line to display the first page on load
-  document.querySelector('#pagination a[data-page="1"]').click();
-});
 
 
 // search events
