@@ -67,10 +67,8 @@ window.addEventListener('load', async (e) => {
       await document.documentElement.style.setProperty("--background", localStorage.getItem('color1'));
       window.location.reload()
     });
-  })
 
-
-  /* NAVBAR JS */
+    /* NAVBAR JS */
 /* checkbox close on clicking outside of it */
 const checkboxToggle = document.getElementById('checkbox_toggle');
 const navbar = document.querySelector('.navbar');
@@ -94,6 +92,11 @@ menuBtn.addEventListener('click', () => {
     menuOpen = false;
   }
 });
+
+  })
+
+
+  
 
 async function gohome(){
   window.location.replace('index.html')

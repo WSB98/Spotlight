@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="css/navbar.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script type="text/javascript" src="scripts/themeSelector.js"></script>
+
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
         <title>Spotlight</title>
     </head>
@@ -38,6 +40,7 @@
                 <!-- NAVIGATION MENUS -->
                     <div class="menu">
                     <a href="index.html"><li>Home</li></a>
+
                     <a href="events.html"><li>Events</li></a>
                    
                     <li id="servicesLink" class="services">
@@ -86,14 +89,22 @@
 
         <div id="psuedoBody">
 
+            <div class="eventHeader">
+            <h1 class="IBM-monospace">Events</h1>
+            <h4 class="source-sans-pro">Powered by <a href="https://eduscan.xyz">EduScan</a></h4>
+
+            </div>
+           
+            <iframe class="eduScanFrame" id="eduScanFrame" src="https://eduscan.xyz/spawn" referrerpolicy="no-referrer" allow="https://eduscan.xyz/spawn">
+
+            </iframe>
+
         </div>
         
         
 
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 
-        <script type="text/javascript" src="scripts/themeSelector.js"></script>
         
         
     </body>
