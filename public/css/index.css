@@ -493,11 +493,11 @@ div::-webkit-scrollbar-thumb:hover {
   .hero{
     filter: blur(8px);
     display: flex;
-    width: 110%;
-    position: relative;
-    left: -5%;
+    width: 101%;
+    position: absolute;
     background-color: var(--foreground);
-    height: 600px;
+    height: 100vh;
+    left:-0.5%;
     margin: 0;
     padding: 0;
     z-index: -100;
@@ -871,6 +871,7 @@ div::-webkit-scrollbar-thumb:hover {
   padding: 25px;
   justify-content: space-evenly;
   border-radius: 10px;
+  background-color: var(--background);
 }
 .loginForm label{
   font-size: x-large;
@@ -921,6 +922,7 @@ div::-webkit-scrollbar-thumb:hover {
   display: flex;
   position: relative;
   top: 150px;
+  width: 100%;
 }
 .loginForm button:hover{
   box-shadow:  .15rem .15rem .3rem grey, 
