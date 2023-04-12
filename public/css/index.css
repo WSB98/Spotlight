@@ -890,6 +890,14 @@ div::-webkit-scrollbar-thumb:hover {
   outline: none;
   border: 1px solid #00000000;
   background-color: #00000000;
+  transition:all ease 0.5s;
+}
+
+.loginForm input:focus{
+  box-shadow:  .15rem .15rem .3rem grey, 
+   -.15rem -.15rem .3rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+  -webkit-appearance: none;
 }
 .loginButton{
   border: 1px solid #00000000;
@@ -901,6 +909,7 @@ div::-webkit-scrollbar-thumb:hover {
   margin: 10px;
   color: var(--foreground);
   border: 1px solid var(--foreground);
+  transition:all ease 0.2s;
 }
 .forgotPassword{
   border: 1px solid #00000000;
@@ -912,10 +921,14 @@ div::-webkit-scrollbar-thumb:hover {
   margin: 10px;
   color: var(--foreground);
   border: 1px solid var(--foreground);
+  transition:all ease 0.2s;
 }
 .buttonContainer{
   justify-content: space-around;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  transition:all ease 0.2s;
 }
 .pseudoBody_login{
   justify-content: space-around;
