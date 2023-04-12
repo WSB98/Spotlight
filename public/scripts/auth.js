@@ -25,7 +25,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase
     appId: data[5],
     measurementId: data[6]
   };
-console.log(firebaseConfig)
+
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
@@ -45,7 +45,7 @@ async function signIn(){
     
         const user = result.user
     
-        console.log(user)
+        
     
     
     }).catch((error) => {
