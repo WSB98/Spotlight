@@ -20,6 +20,19 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "redirects":[ 
+      {
+        "source": "/",
+        "destination": "/login.html",
+        "type": 301
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }

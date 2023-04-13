@@ -12,6 +12,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+        <script src="scripts/boot.js"></script>
         <script type="module" src="scripts/airtable_api.js"></script>
         <title>Spotlight</title>
     </head>
@@ -50,11 +51,11 @@
                     </ul>
                     </li>
                     <li id="accountLink" class="services">
-                        <a>Account</a>
+                        <a id="userAcctProfile">Not Set</a>
                         <!-- DROPDOWN MENU -->
                         <ul id="accountDropdown" class="dropdown">
                             <a href="profile.html"><li>Profile</li></a>
-                            <a href="login.html"><li>Log Out</li></a>
+                            <a id="logout" href="login.html"><li>Log Out</li></a>
                         </ul>
                         </li>
                     </div>
@@ -87,6 +88,7 @@
 
         <div id="psuedoBody">
             <h1 id="spotlightTitle" class="source-sans-pro titleHeader">Spotlight</h1>
+            <h3 id="usernameWelcome" class="source-sans-pro usernameWelcome"></h3>
 
             <div id="orgs" class="fellowsProjectsTable">
                 <h2 class="IBM-monospace">Organizations</h2>

@@ -1,7 +1,13 @@
-import {getAuth, signInWithPopup, GoogleAuthProvider} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+import {getAuth, signInWithPopup, GoogleAuthProvider, signInWithCredential} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
 
+Storage.prototype.setObj = function(key, obj) {
+  return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+  return JSON.parse(this.getItem(key))
+}
 
 
   // Import the functions you need from the SDKs you need
@@ -38,42 +44,58 @@ const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
 
-async function signIn(){
-    signInWithPopup(auth, provider).then((result) => {
+window.signIn = async () => {
+    signInWithPopup(auth, provider).then(async (result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-    
-        const user = result.user
-    
-        
-    
-    
+        const user = result.user;
+        const displayName = user.displayName;
+        const email = user.email;
+        const pfp = user.photoURL;
+        const uid = user.uid;
+
+        var refreshToken = user.stsTokenManager.refreshToken;
+
+        await localStorage.setObj('currUserObj', {displayName: displayName, email: email, pfp: pfp, uid: uid, refreshToken: refreshToken})
+
+        await sessionStorage.setItem('sessionKey',refreshToken);
+
+   //     console.log(user)
+
+      
+       await window.location.assign('index.html')
+       
+
+
     }).catch((error) => {
         console.log(error)
         const errorCode = error.code;
         const errorMessage = error.message;
-        const email = error.customData.email;
+        //const email = error.customData.email;
         const credential = GoogleAuthProvider.credentialFromError(error)
     })
 }
 
-/*document.getElementById('buttonContainer').innerHTML+= `
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 
-<div id="g_id_onload"
-data-client_id="299160261106-afgtqs1ircc2se11amna87bqvpsjb265.apps.googleusercontent.com"
-data-context="signin"
-data-ux_mode="popup"
-data-callback="signIn()"
-data-itp_support="true">
-</div>
 
-<div class="g_id_signin"
-data-type="standard"
-data-shape="pill"
-data-theme="filled_black"
-data-text="signin_with"
-data-size="large"
-data-logo_alignment="left"
-data-width="200">
-</div>`*/
+
+// abandoning this method (probably) for the above one
+window.goHome = async(user) => {
+  // Retrieve the ID token from the client-side
+  //var id_token = user.getAuthResponse().id_token;
+
+  // Decode the ID token using jwt-decode
+  //var decoded_token = jwt_decode<JwtPayload>(user || '') || null;
+  var decoded_token = 'test'
+  console.log(decoded_token)
+
+  // Extract the user's unique identifier and any additional user profile information that you need
+  var user_id = decoded_token.sub;
+  var user_name = decoded_token.name;
+  var user_email = decoded_token.email;
+
+  // Use the user's unique identifier to check if the user already exists in your system
+  // If not, create a new user profile for them using the extracted user profile information
+
+  console.log(user_id, user_name, user_email)
+}

@@ -1,3 +1,10 @@
+//storage objects
+Storage.prototype.setObj = function(key, obj) {
+  return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+  return JSON.parse(this.getItem(key))
+}
 
   /* search fellows projects table */
   // search orgs
@@ -255,6 +262,38 @@ function searchTable2() {
      document.querySelector('#pagination2 a[data-page2="1"]').click();
  }
  
+}
+
+
+// set the user profile 
+async function initUser(){
+  var profileLink = document.getElementById('userAcctProfile')
+
+  var currUser = await localStorage.getObj('currUserObj')
+
+  var name = currUser.displayName;
+
+  // welcome back ${user}
+  await welcomeUser(name)
+  
+
+
+};
+initUser()
+
+async function welcomeUser(name){
+    var welcomeMessage = 'Welcome back, ' + name;
+    var headerUser = document.getElementById('usernameWelcome')
+    headerUser.innerHTML = '';
+    console.log(welcomeMessage)
+  
+    for (var i = 0; i < welcomeMessage.length; i++) {
+      (function(i) {
+        setTimeout(function() {
+          headerUser.innerHTML += welcomeMessage.charAt(i);
+        }, i*70);
+      })(i);
+    }
 }
 
 

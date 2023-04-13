@@ -89,34 +89,61 @@
                     <input id="password" placeholder="*******" type="password">
                 </label>
                 <div id="buttonContainer" class="buttonContainer">
-                    <button id="login" class="loginButton" type="button" onclick="window.location.assign('index.html')">
+                    <button id="login" class="loginButton" type="button">
                         Login
                     </button>
                     <button id="forgot" class="forgotPassword" type="button">
                         Forgot Password
                     </button>
 
-                    <script src="https://accounts.google.com/gsi/client" async defer referrerpolicy="strict-origin-when-cross-origin"></script>
+                <div class="googleSignInContainer">
+                    <script src="https://accounts.google.com/gsi/client" async defer referrerpolicy="no-referrer-when-downgrade"></script>
+            
+                    <script>
+                        function handleCredentialResponse(response) {
+                     
+                          
+                          //authenticate user --> done
 
-                    <div id="g_id_onload"
-                    data-client_id="299160261106-afgtqs1ircc2se11amna87bqvpsjb265.apps.googleusercontent.com"
-                    data-context="signin"
-                    data-ux_mode="popup"
-                    data-login_uri="https://spawn-spotlight.web.app/index.html"
-                    data-itp_support="true">
-                    </div>
+                          //check if the user exists already --> WIP
 
-                    <div class="g_id_signin"
-                    data-type="standard"
-                    data-shape="pill"
-                    data-theme="filled_black"
-                    data-text="signin_with"
-                    data-size="large"
-                    data-logo_alignment="left"
-                    data-width="200">
-                    </div>`
+                          //redirect to create account if account doesnt exist --> technically automatic, 
+                          //                                                        but should be seperated for UX
 
+
+                          //if user does exist, get credentials and
+                          //start user session --> done
+                          
+                          
+                          // go to index.html --> done
+                          
+                          window.signIn();
+                        }
+                        window.onload = function () {
+                          google.accounts.id.initialize({
+                            client_id: "299160261106-afgtqs1ircc2se11amna87bqvpsjb265.apps.googleusercontent.com",
+                            callback: handleCredentialResponse,
+                            ux_mode:'popup',
+                            context:'signin',
+                            itp_support:'true'
+                          });
+                          google.accounts.id.renderButton(
+                            document.getElementById("buttonDiv"),
+                            { theme: "filled_black", size: "large", text:'continue_with',width:'200',shape:'pill' }  // customization attributes
+                          );
+                          google.accounts.id.prompt(); // also display the One Tap dialog
+                        }
+                    </script>
+                    <div id="buttonDiv"></div> 
+                    
+
+  
                 </div>
+                    
+
+                </div><button id="createAccount" class="forgotPassword" type="button">
+                        Create An Account
+                    </button>
             </div>
 
         </div>
@@ -126,6 +153,7 @@
    
 
         <script type="module" src="scripts/auth.js"></script>
-        
+       
+
     </body>
 </html>
