@@ -935,6 +935,19 @@ div::-webkit-scrollbar-thumb:hover {
   border: 1px solid var(--foreground);
   transition:all ease 0.2s;
 }
+.createAccount{
+  border: 1px solid #00000000;
+  outline: none;
+  background-color: var(--background);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: medium;
+  margin: 10px;
+  margin-top: 20px;
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
+  transition:all ease 0.2s;
+}
 .buttonContainer{
   justify-content: space-around;
   display: flex;
