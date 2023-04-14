@@ -34,7 +34,6 @@ body {
     background-color: var(--background);
     color: var(--foreground);
     overflow-x:hidden;
-    width: 100vw;
 }
 .searchText{
   color:var(--foreground);
@@ -157,10 +156,10 @@ body {
 .socialLink:hover .socialIcon{
   fill: var(--background);
 }
-.ratingSvg {
-  fill: var(--background);
-  height: 3.6rem;
-  width: 3.6rem;
+.iconSVG {
+  fill: var(--foreground);
+  height: 2.8rem;
+  width: 2.8rem;
   margin: 0.2rem;
   transition: all ease 0.2s;
 }
