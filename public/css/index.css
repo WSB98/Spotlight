@@ -27,12 +27,14 @@ h6 {
   position: relative;
   left: 0px;
   top: 100px;
-  color: var(--foreground);
+  color: var(--background);
   font-size: 24px;
 }
 body {
     background-color: var(--background);
     color: var(--foreground);
+    overflow-x:hidden;
+    width: 100vw;
 }
 .searchText{
   color:var(--foreground);
@@ -52,10 +54,132 @@ body {
   -.1rem -.1rem .25rem rgb(255, 255, 235);
   transition:all ease 0.2s;
 }
+#PotW{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  top: 15vh;
+  width: 90%;
+  justify-content: space-around;
+  text-align: center;
+  height: 35vh;
+  margin-left: 4%;
+  backdrop-filter: blur(20px) saturate(116%);
+  -webkit-backdrop-filter: blur(14px) saturate(116%);
+  background-color: rgba(232, 224, 214, 0.45);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  overflow-x: auto;
+  overflow-y: hidden;
+  transition: all ease-in-out 0.3s;
 
+
+  transform: translate(-1200px, 0px);
+}
+.logoSVG{
+  height: 163.5px;
+  width: 325px;
+  margin-right: 50px;
+  margin-left: 25px;
+  margin-top: 40px;
+}
+.potwDescription{
+  width: 300px;
+  flex-shrink: 0;
+}
+.teamList{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+.teamItem{
+  margin: 5px;
+  padding: 10px;
+  background-color: var(--background);
+  border-radius: 25px;
+  width: auto;
+  transition: all ease 0.2s;
+  cursor: pointer;
+
+}
+.teamItem:hover{
+  background-color: var(--foreground);
+  color: var(--background);
+  transition: all ease 0.2s;
+}
+.teamContainer{
+  overflow-y: scroll;
+  overflow-x:hidden;
+  width: 325px;
+  flex-shrink: 0;
+  margin-left: 25px;
+  padding-right: 50px;
+}
+.socialLinks{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 25px;
+  margin-right: 25px;
+  height: 100%;
+
+  overflow-y: scroll;
+  width: 265px;
+  flex-shrink: 0;
+}
+.socialTitle{
+  width: 100%;
+  text-align: center;
+}
+.socialIcon{
+  padding: 0px;
+}
+.socialLink{
+  height: 64px;
+  width: 64px;
+  position: relative;
+  margin: 8px;
+  padding: 4px;
+  border-radius: 5px;
+  transition:all ease 0.2s;
+}
+.socialLink:hover{
+  transform:scale(1.1);
+  background-color: var(--foreground);
+  fill: var(--background);
+  color: var(--background);
+}
+.socialLink:hover .socialIcon{
+  fill: var(--background);
+}
+.ratingSvg {
+  fill: var(--foreground);
+  height: 3.6rem;
+  width: 3.6rem;
+  margin: 0.2rem;
+  transition: all ease 0.2s;
+}
+.teamPic{
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  box-shadow: 0px 0px 4px 0px #222;
+}
+.align-left{
+  text-align: left;
+}
 .fellowPicture{
   border-radius: 300%;
   height: 100px;
+}
+
+.potwScroller{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  top: 20px;
 }
 
 /* .neumorphicOut:active{
@@ -136,7 +260,7 @@ body {
   }
   .titleHeader{
     top: 100px;
-    color: var(--foreground);
+    color: var(--background);
     position: relative;
     font-size: 48px;
   }
@@ -230,28 +354,59 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: grey;
   transition: all ease 0.2s;
 }
-div::-webkit-scrollbar {
-  width: 1rem;
-  background-color: var(--background);
+
+
+/* custom scroll for project of the day */
+#PotW::-webkit-scrollbar {
+  width: 5px;
+  background-color: #00000000;
   color: var(--foreground);
   transition: all ease 0.2s;
 }
-div::-webkit-scrollbar-track {
-  background-color:var(--background);
+#PotW::-webkit-scrollbar-track {
+  background-color:#00000000;
   border-radius: 100vw;
-  margin-block: 4px;
+  margin-block: 2px;
   transition: all ease 0.2s;
 }
-div::-webkit-scrollbar-thumb {
-  background-color: var(--foreground);
+#PotW::-webkit-scrollbar-thumb {
+  background-color: var(--background);
   border-radius: 100vw;
-  border: 4px solid var(--background);
   transition: all ease 0.2s;
 }
-div::-webkit-scrollbar-thumb:hover {
-  background-color: grey;
+#PotW::-webkit-scrollbar-thumb:hover {
+  background-color: var(--background);
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+.teamContainer::-webkit-scrollbar {
+  width: 5px;
+  background-color: #00000000;
+  color: var(--foreground);
   transition: all ease 0.2s;
 }
+.teamContainer::-webkit-scrollbar-track {
+  background-color:#00000000;
+  border-radius: 100vw;
+  margin-block: 2px;
+  transition: all ease 0.2s;
+}
+.teamContainer::-webkit-scrollbar-thumb {
+  background-color: var(--background);
+  border-radius: 100vw;
+  transition: all ease 0.2s;
+}
+.teamContainer::-webkit-scrollbar-thumb:hover {
+  background-color: var(--background);
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+
+
+
+
+
+
 .testingTable1{
   border-collapse: collapse;
   font-family: 'Source Sans Pro', sans-serif;
@@ -467,7 +622,6 @@ div::-webkit-scrollbar-thumb:hover {
     transition: all ease 0.2s;
   }
   .fellowsProjectsTable{
-    top: 150px;
     position: relative;
     margin: 20px;
     overflow-x: scroll;
@@ -475,6 +629,10 @@ div::-webkit-scrollbar-thumb:hover {
     flex-direction: column;
     justify-content: space-around;
     padding: 8px;
+  }
+  .tables{
+    position: relative;
+    top: 25vh;
   }
 
   .colorSwapper{
@@ -526,6 +684,40 @@ div::-webkit-scrollbar-thumb:hover {
     animation-duration: calc(60s / var(--i));
   }
   .hero span:nth-child(even){
+    background: var(--background);
+    box-shadow: 0 0 0 10px var(--background),
+    0 0 50px #ccc,
+    0 0 100px #ccc;
+  }
+
+  .hero_index{
+    filter: blur(8px);
+    display: flex;
+    width: 101%;
+    position: absolute;
+    background-color: var(--foreground);
+    height: 77vh;
+    left:-0.5%;
+    margin: 0;
+    padding: 0;
+    z-index: -100;
+    overflow: hidden;
+    justify-content: space-between;
+  }
+  .hero_index span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: var(--background);
+    margin: 0 4px;
+    border-radius: 300%;
+    box-shadow: 0 0 0 10px var(--background),
+    0 0 50px #fff,
+    0 0 100px #fff;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(60s / var(--i));
+  }
+  .hero_index span:nth-child(even){
     background: var(--background);
     box-shadow: 0 0 0 10px var(--background),
     0 0 50px #ccc,
@@ -948,6 +1140,7 @@ div::-webkit-scrollbar-thumb:hover {
   border: 1px solid var(--foreground);
   transition:all ease 0.2s;
 }
+
 .buttonContainer{
   justify-content: space-around;
   display: flex;

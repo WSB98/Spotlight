@@ -274,7 +274,10 @@ async function initUser(){
   var name = currUser.displayName;
 
   // welcome back ${user}
-  await welcomeUser(name)
+  await welcomeUser(name);
+
+  
+  
   
 
 
@@ -294,7 +297,34 @@ async function welcomeUser(name){
         }, i*70);
       })(i);
     }
+
+    setTimeout( async function(){
+      await showProjectOfTheWeek();
+    },4000);
+
 }
+
+async function showProjectOfTheWeek(){
+  var welcomeMessage = 'Check out the project of the week!'
+  var headerUser = document.getElementById('usernameWelcome')
+  headerUser.innerHTML = '';
+  console.log(welcomeMessage)
+
+  for (var i = 0; i < welcomeMessage.length; i++) {
+    (function(i) {
+      setTimeout(function() {
+        headerUser.innerHTML += welcomeMessage.charAt(i);
+      }, i*70);
+    })(i);
+  }
+
+  var PotW = document.getElementById('PotW')
+
+  
+
+}
+
+
 
 
 
