@@ -1,0 +1,28 @@
+:root { 
+  --black: #000000;
+  --log-cabin: #222222;
+  --pearl-bush: #e8e0d6;
+ 
+  --font-size-l: 24px;
+  --font-size-m: 20px;
+  --font-size-xl: 64px;
+ 
+  --font-family-cabin: "Cabin", Helvetica;
+  --font-family-ibm_plex_mono: "IBM Plex Mono", Helvetica;
+  --font-family-inter: "Inter", Helvetica;
+}
+.inter-normal-log-cabin-20px {
+  color: var(--log-cabin);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.inter-normal-pearl-bush-24px {
+  color: var(--pearl-bush);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
