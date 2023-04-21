@@ -177,6 +177,8 @@ transform: translate(0,0);
 
 .full-project .navbar-link:hover {
   transform: translate(0, -5px);
+  box-shadow: -8px 8px 0px 0px #222222;
+  border-radius: 5px;
 }
 
 .full-project .about-container {
@@ -230,8 +232,50 @@ transform: translate(0,0);
   width: 25%;
 }
 
+.linkList{
+  color: #e8e0d6;
+  z-index: 4;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px;
+  font-family: var(--font-family-cabin) ;
+  font-size: 24px;
+  height: auto;
+  justify-content: space-around;
+}
+
+.linkList li{
+  padding: 10px;
+  margin: 5px;
+  transition: all ease 0.4s;
+}
+.linkList li:hover{
+  box-shadow: 2px 2px 8px #222,
+  -2px -2px 8px #e8e0d6;;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.linkList a{
+  color: #e8e0d6;
+}
+
+#linkListMobile{
+  top: 50px;
+  position: fixed;
+  width: 300px;
+  display: flex;
+  z-index: 4;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: calc(50% - 150px);
+  text-align: center;
+}
+
 .full-project .about1-2:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .full-project .lorem-ipsum-dolor-si-1 {
@@ -257,7 +301,7 @@ transform: translate(0,0);
 }
 
 .full-project .about1-3:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .full-project .about1-4 {
@@ -276,7 +320,7 @@ transform: translate(0,0);
 }
 
 .full-project .about1-4:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .full-project .about-section2 {
@@ -442,7 +486,7 @@ transform: translate(0,0);
 }
 
 .index-mobile .logo-container:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .index-mobile .logo {
