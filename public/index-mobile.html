@@ -80,30 +80,30 @@
           function run(__anima_params__, exports, module, require) {
               "use strict";
 
-var _react = _interopRequireDefault(require("react"));
-var _reactDom = _interopRequireDefault(require("react-dom"));
-var MantineCore = _interopRequireWildcard(require("@mantine/core"));
-var MantineHooks = _interopRequireWildcard(require("@mantine/hooks"));
-var EmotionReact = _interopRequireWildcard(require("@emotion/react"));
-var MantineDates = _interopRequireWildcard(require("@mantine/dates"));
-var TablerIcons = _interopRequireWildcard(require("@tabler/icons"));
-var Dayjs = _interopRequireWildcard(require("dayjs"));
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-const Example = args => {
-  const [opened, setOpened] = _react.default.useState(false);
-  return /*#__PURE__*/_react.default.createElement(MantineCore.Burger, {
-    size: "lg",
-    opened: opened,
-    transitionDuration: 100,
-    onClick: () => setOpened(o => !o)
-  });
-};
-const args = __anima_params__;
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(Example, args), document.querySelector(".burger"));
-          }
-      )
+                var _react = _interopRequireDefault(require("react"));
+                var _reactDom = _interopRequireDefault(require("react-dom"));
+                var MantineCore = _interopRequireWildcard(require("@mantine/core"));
+                var MantineHooks = _interopRequireWildcard(require("@mantine/hooks"));
+                var EmotionReact = _interopRequireWildcard(require("@emotion/react"));
+                var MantineDates = _interopRequireWildcard(require("@mantine/dates"));
+                var TablerIcons = _interopRequireWildcard(require("@tabler/icons"));
+                var Dayjs = _interopRequireWildcard(require("dayjs"));
+                function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+                function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+                function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+                const Example = args => {
+                  const [opened, setOpened] = _react.default.useState(false);
+                  return /*#__PURE__*/_react.default.createElement(MantineCore.Burger, {
+                    size: "lg",
+                    opened: opened,
+                    transitionDuration: 100,
+                    onClick: () => setOpened(o => !o)
+                  });
+                };
+                const args = __anima_params__;
+                _reactDom.default.render( /*#__PURE__*/_react.default.createElement(Example, args), document.querySelector(".burger"));
+                          }
+                      )
               </script>
             </div>
           </div>
@@ -253,12 +253,38 @@ _reactDom.default.render( /*#__PURE__*/_react.default.createElement(Example, arg
           <div class="logo-container-1"><img class="logo-1" src="img/logo@2x.png" alt="logo" /></div>
           <div class="navbar-2 inter-normal-pearl-bush-24px">
             <a href="#top" class="inter-normal-pearl-bush-24px"><div class="navbar-link">Home</div></a>
+            <a href="#potwContainer" class="inter-normal-pearl-bush-24px"><div class="navbar-link">Spotlight</div></a>
             <a href="#about-container" class="inter-normal-pearl-bush-24px"><div class="navbar-link">About</div></a>
-            <div class="navbar-link">Mission</div>
             <div class="navbar-link" onclick="window.location.assign('login.html')">Login</div>
           </div>
         </div>
+        <br>
+        <div id="potwContainer" class="potwContainer">
+
+          <h1 class="sectionHeader">Project of the Month</h1>
+
+          <ul class="potwTeam">
+            <li class="teamMember"><img class="potwpfp" src="img/ben-den-engelsen-YUu9UAcOKZ4-unsplash.jpg" alt="pfp">
+              <span class="memberInfo"><h6>Michael Brown, Economist</h6><p class="memberInfoText">Hey! I'm Michael, I am part of the founding team at eduScan and have a passion for emerging technology. I am very excited to continue working in the world of web3.</p></span>
+            </li>
+            <li class="teamMember"><img class="potwpfp" src="img/christian-buehner-DItYlc26zVI-unsplash.jpg" alt="pfp">
+              <span class="memberInfo"><h6>John Doe, CEO</h6><p class="memberInfoText">Hey! I'm John, I am part of the founding team at eduScan and have a passion for emerging technology. I am very excited to continue working in the world of web3.</p></span>
+            </li>
+            <li class="teamMember"><img class="potwpfp" src="img/edward-cisneros-_H6wpor9mjs-unsplash.jpg" alt="pfp">
+              <span class="memberInfo"><h6>Jane Doe, CEO</h6><p class="memberInfoText">Hey! I'm Jane, I am part of the founding team at eduScan and have a passion for emerging technology. I am very excited to continue working in the world of web3.</p></span>
+            </li>
+            <li class="teamMember"><img class="potwpfp" src="img/ben-den-engelsen-YUu9UAcOKZ4-unsplash.jpg" alt="pfp">
+              <span class="memberInfo"><h6>John Doe, CEO</h6><p class="memberInfoText">Hey! I'm Michael, I am part of the founding team at eduScan and have a passion for emerging technology. I am very excited to continue working in the world of web3.</p></span>
+            </li>
+          </ul>
+
+          <div class="potwContent">
+
+          </div>
+        </div>
+
         <div id="about-container" class="about-container">
+          <h1 class="sectionHeader">About Spotlight</h1>
           <div class="about-section1 bp2-animate-enter3" show-on-scroll>
             <div class="about1-2">
               <p class="lorem-ipsum-dolor-si-1 inter-normal-log-cabin-20px">
@@ -282,7 +308,9 @@ _reactDom.default.render( /*#__PURE__*/_react.default.createElement(Example, arg
               </p>
             </div>
           </div>
+          <h1 class="sectionHeader">Featured Projects</h1>
           <div class="about-section2 bp2-animate-enter2" show-on-scroll>
+         
             <div class="about1-2">
               <p class="lorem-ipsum-dolor-si-1 inter-normal-log-cabin-20px">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

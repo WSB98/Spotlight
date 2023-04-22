@@ -262,6 +262,102 @@ transform: translate(0,0);
   color: #e8e0d6;
 }
 
+.sectionHeader {
+  font-family: 'Cabin';
+  font-size: 48px;
+  text-align: center;
+  color: #4A4A4A;
+}
+
+.potwContent{
+
+}
+
+.potwContainer{
+  width: 90%;
+  margin-left: 5%;
+  height: 682px;
+  padding: 0;
+  position: relative;
+}
+
+.potwpfp{
+  height: 140px;
+  width: 140px;
+  border-radius: 100%;
+  top: 5px;
+  left: 5px;
+  position: relative;
+  z-index: 2;
+}
+
+.teamMember{
+  border-radius: 100%;
+  margin-bottom: 20px;
+  height: 150px;
+  width: 150px;
+  background-color: #e8e0d6;
+  box-shadow: 5px 5px 8px 0px #00000020,
+  -5px -5px 8px 0px #ffffff50;
+  text-align: center;
+  display: flex;
+  transition: all ease-in-out 0.2s;
+}
+
+.potwTeam {
+  height: 500px;
+  overflow-y: scroll;
+  width: 735px;
+  padding: 5px;
+  transition: all ease-in-out 0.2s;
+}
+.potwTeam::-webkit-scrollbar{
+  display: none;
+}
+
+.teamMember:hover .memberInfo {
+  opacity: 1;
+  width: 700px;
+  transition: all ease-in-out 0.2s;
+}
+.teamMember:hover .memberInfoText {
+  display: flex;
+  transition: all ease-in-out 0.2s;
+}
+.teamMember:hover h6 {
+  display: flex;
+  transition: all ease-in-out 0.2s;
+}
+.memberInfo{
+  width: 0px;
+  height: 150px;
+  border-radius: 100px;
+  position: relative;
+  background-color: #6B2DA3;
+  z-index: 0;
+  opacity: 1;
+  transition: all ease-in-out 0.2s;
+  left: -140px;
+}
+.memberInfoText{
+  width: 500px;
+  height: 120px;
+  margin-left: 175px;
+  text-align: left;
+  color: #cccccc;
+  font-size: 20px;
+  display: none;
+  transition: all ease-in-out  0.2s;
+}
+.memberInfo h6 {
+  text-align: center;
+  padding: 5px;
+  color: #e8e0d6;
+  font-size: 24px;
+  display: none;
+  transition: all ease-in-out 0.2s;
+  margin-left: 175px;
+}
 #linkListMobile{
   top: 50px;
   position: fixed;
