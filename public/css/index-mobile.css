@@ -353,16 +353,15 @@ transform: translate(0,0);
   fill: #6B2DA3;
   height: 4.2rem;
   width: 4.2rem;
-  margin: 0.2rem;
+  margin: 1rem;
   transition: all ease 0.2s;
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 4px;
 }
 .neumorphicOut {
-  box-shadow: .15rem .15rem .3rem grey, 
-  -.1rem -.1rem .25rem rgb(255, 255, 235) !important;
+  box-shadow: 4px 4px 8px 0px #22222250, 
+  -4px -4px 8px 0px #FFFFFF20;
   transition:all ease 0.2s;
-  -webkit-appearance: none;
 }
 .socialTitle{
   text-align: center;
@@ -376,7 +375,7 @@ transform: translate(0,0);
   display: flex;
   flex-direction: column;
   width: 250px;
-  height: 400px;
+  height: 450px;
   flex-wrap: wrap;
   padding: 5px;
   align-items: center;
@@ -871,6 +870,7 @@ transform: translate(0,0);
     flex-wrap: wrap;
     text-align: center;
     align-items: center;
+    justify-content: space-around;
    }
    .potwLinksMobile h3 {
     width: 100%;
