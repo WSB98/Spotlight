@@ -60,7 +60,7 @@ window.signIn = async () => {
 
         await sessionStorage.setItem('sessionKey',refreshToken);
 
-   //     console.log(user)
+ 
 
       
        await window.location.assign('index.html')

@@ -15,9 +15,23 @@ burger.addEventListener('click', async(e) => {
         navbar.style.height = '800px';
         links.style.transition = 'all ease 0.2s';
         links.innerHTML = `<ul class="linkList">
-                                <a href="#top" onclick="document.getElementById('burger').click()"><li>home</li></a>
-                                <a href="#scroller" onclick="document.getElementById('burger').click()"><li>about</li></a>
-                                <a href="#potwMobile" onclick="document.getElementById('burger').click()"><li>Project of the Month</li></a>
+                                <a href="#top" onclick="document.querySelector('.mantine-Burger-root').dispatchEvent(new MouseEvent('click', {      
+                                    view: window,
+                                    bubbles: true,
+                                    cancelable: true
+                                  }));"><li>home</li></a>
+                                
+                                <a href="#potwMobile" onclick="document.querySelector('.mantine-Burger-root').dispatchEvent(new MouseEvent('click', {      
+                                    view: window,
+                                    bubbles: true,
+                                    cancelable: true
+                                  }));"><li>project of the month</li></a>
+
+                                <a href="#scroller" onclick="document.querySelector('.mantine-Burger-root').dispatchEvent(new MouseEvent('click', {      
+                                    view: window,
+                                    bubbles: true,
+                                    cancelable: true
+                                  }));"><li>about</li></a>
                                 <a href="login.html"><li>login</li></a>
                             </ul>`
     }
@@ -27,3 +41,15 @@ burger.addEventListener('click', async(e) => {
         links.innerHTML = ``;
     }  
 });
+
+
+//close popups when clicking the X
+var closeIcons = document.querySelectorAll('.closeBtn')
+
+closeIcons.forEach(async o => {
+
+    o.addEventListener('click', async(e) => {
+        document.getElementById('navLogo').click();
+        console.log('clicked')
+    })
+})
