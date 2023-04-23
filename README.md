@@ -21,5 +21,9 @@ Assuming you arrived at this repo to test out Spotlight or do some QA testing, t
 - ```CMD+SHIFT+P``` // ```CTRL+SHIFT+P``` to open commands, then click **Start Live Server**
 - If you open to a file tree, navigate to ```public```
 
+# For Development
+In order to authenticate yourself while working on the code you will need to login using firebase. Firebase only works when running locally if you are using localhost on 
+port 80 / 'no port'. *Firebase DOES NOT WORK* when running locally from a port that is not 80 OR none (which is technically 80).
+
 # Reporting Issues
 Please let me know if any major bugs or issues arise by contacting me personally or opening a new Issue in the Issues tab.
