@@ -68,6 +68,7 @@ body::-webkit-scrollbar-thumb:hover {
   color: #222222;
   font-size: medium;
   font-family: 'Source Sans Pro', sans-serif;
+  cursor: pointer;
 }
 .featuredProjLogo {
   width: 250px;
@@ -75,6 +76,7 @@ body::-webkit-scrollbar-thumb:hover {
   left: calc(50% - 125px);
   position: relative;
   margin-top: 0px;
+  cursor: pointer;
 }
 .tags{
   display: flex;
@@ -348,6 +350,7 @@ transform: translate(0,0);
   border: 1px solid #00000000;
   box-shadow: 4px 4px 12px 0px #22222250,
   -4px 4px 12px 0px #ffffff20;
+  -webkit-appearance: none;
 }
 .contactSection textarea{
   width: 80%;
@@ -366,6 +369,7 @@ transform: translate(0,0);
   border: 1px solid #00000000;
   box-shadow: 4px 4px 12px 0px #22222250,
   -4px 4px 12px 0px #ffffff20;
+  -webkit-appearance: none;
 }
 .contactSection button {
   width: 33%;
@@ -464,7 +468,7 @@ transform: translate(0,0);
   text-align: center;
   color: #4A4A4A;
   margin-bottom: 5px;
-  margin-top: 42px;
+  margin-top: 12px;
   margin-bottom: 28px;
 }
 
@@ -509,7 +513,7 @@ transform: translate(0,0);
   display: flex;
   flex-direction: column;
   padding: 10px;
-  margin: 10px;
+  margin: 0px;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -793,11 +797,11 @@ transform: translate(0,0);
 
 .index-mobile {
   align-items: flex-start;
-  background-color: var(--pearl-bush);
+  background-color: #fffDFA;
   border: 1px none;
   display: flex;
   flex-direction: column;
-  height: 3000.0px;
+  height: 4000px;
   overflow: hidden;
   width: 100%;
 }
@@ -811,7 +815,7 @@ transform: translate(0,0);
 }
 
 .index-mobile .hero-container {
-  height: 872px;
+  height: 650px;
   left: 315px;
   position: absolute;
   top: 0;
@@ -969,7 +973,7 @@ transform: translate(0,0);
   scroll-behavior: smooth;
   scroll-padding-top: -100px;
   gap: 60%;
-  height: 400px;
+  height:600px;
   justify-content: flex-start;
   margin-left: 0;
   padding: 35px;
@@ -977,7 +981,7 @@ transform: translate(0,0);
   padding-left: calc(50% - 175px);
   width: 100%;
   overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-y: visible;
   z-index: 2;
   transition: all ease 0.2s;
 }
@@ -992,7 +996,7 @@ transform: translate(0,0);
 .index-mobile .about1-1 {
   align-items: flex-start;
   border-radius: 10px;
-  box-shadow: -6px -6px 12px #ffffff80 , 6px 6px 12px #00000033;
+  border: 1px solid #cccccc;
   display: flex;
   height: 300px;
   left: 0;
@@ -1001,6 +1005,11 @@ transform: translate(0,0);
   position: absolute;
   top: 0;
   width: 300px;
+  transition:all ease 0.2s;
+}
+.about1-1:hover {
+  border: 1px solid #00000000;
+  box-shadow: -6px -6px 12px #ffffff80 , 6px 6px 12px #00000033;
 }
 
 .index-mobile .lorem-ipsum-dolor-si {
@@ -1028,15 +1037,20 @@ transform: translate(0,0);
 .index-mobile .about1 {
   align-items: flex-start;
   border-radius: 10px;
-  box-shadow: -6px -6px 12px #ffffff80 , 6px 6px 12px #00000033;
+  border: 1px solid #cccccc;
   display: flex;
   height: 300px;
   left: 47px;
-  overflow: hidden;
+  overflow: visible;
   padding: 24px 25px;
   position: absolute;
   top: 0;
   width: 300px;
+  transition: all ease 0.2s;
+}
+.about1:hover {
+  border: 1px solid #00000000;
+  box-shadow: -6px -6px 12px #ffffff80 , 6px 6px 12px #00000033;
 }
 
 .index-mobile .circle-arrow-right-solid {
@@ -1162,7 +1176,7 @@ transform: translate(0,0);
   margin-bottom: 20px;
   height: 150px;
   width: 150px;
-  background-color: #e8e0d6;
+  background-color: #fffDFA;
   box-shadow: 5px 5px 8px 0px #00000020,
   -5px -5px 8px 0px #ffffff50;
   text-align: center;
@@ -1210,7 +1224,55 @@ transform: translate(0,0);
 .teamHeader{
   font-size: 24px;
 }
+.featureDesc{
+  opacity: 1;
 
+}
+
+.footer {
+  width: 100%;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background-color: #6B2DA3;
+  position:absolute;
+  bottom: 0;
+  top: 4000px;
+  z-index: 10;
+  text-align: center;
+  padding: 12px;
+  color: #e8e0d6;
+}
+
+.roboSpawn{
+  position: absolute;
+  width: 120px;
+  top: 3200px;
+  left: calc(85% - 60px);
+}
+.contactSection{
+  margin-top: 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactSection button {
+  width: 85%;
+  margin-top: 25px;
+  outline: none;
+  border: 1px solid #6B2DA3;
+  color: #6B2DA3;
+  background-color: #00000000;
+  border-radius: 5px;
+  margin-left: 33%;
+  padding: 10px;
+  font-size: x-large;
+  font-family: 'Cabin';
+  cursor: pointer;
+  transition: all ease 0.2s;
+  margin-bottom: 20px;
+}
 }
 @media screen and (min-width: 1338px) {
   .screen.index-mobile { 
